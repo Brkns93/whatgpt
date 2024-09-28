@@ -13,17 +13,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Build Docker image
-      run: docker build -t myapp:${{ github.sha }} ./app
+      run: docker build -t whatgpt:${{ github.sha }} ./app
     
     - name: Run tests
       run: |
         # Add your test commands here
-        # Example: docker run myapp:${{ github.sha }} python -m pytest
+        # Example: docker run whatgpt:${{ github.sha }} python -m pytest
 
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    if: github.event_name == 'push'
     steps:
     - name: Deploy to EC2
       env:
@@ -33,14 +33,9 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST} '
-          cd /app
+          cd ~/
           
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            git fetch origin
-            git checkout -b pr-${{ github.event.pull_request.number }} origin/${{ github.head_ref }}
-          else
-            git pull origin main
-          fi
+          git pull origin main
           
           # Build and start the new container
           docker-compose down
