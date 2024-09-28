@@ -1,4 +1,4 @@
-# WpTwilioApp
+# WhatGPT
 This project enables developers to integrate ChatGPT with WhatsApp using Twilio. It provides a seamless way to connect OpenAI's powerful language model with WhatsApp messaging, allowing for automated responses and interactions. This setup is intended for development purposes. For production deployment, please follow the Flask production guidelines.
 
 ## Dependencies
