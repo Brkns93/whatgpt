@@ -6,12 +6,13 @@ This project enables developers to integrate ChatGPT with WhatsApp using Twilio.
 - After registiration you should configure webhook through settings. Enter http://{YOUR_PUBLIC_IP}/twilio-webhook to **"When a message comes in"** input.
 
 ## Installation
-You should configure the **.env** file before starting the application. Copy the **wptwilioapp/.env.config** file as **wptwilioapp/.env** and fill the secrets from Twilio and OpenAI. ull this repo and run `install.sh`. This script will install necessary tools and start the application.
+You should configure the **.env** file before starting the application. Copy the **wptwilioapp/.env.config** file as **wptwilioapp/.env** and fill the secrets from Twilio and OpenAI. Pull this repo and run `install.sh`. This script will install necessary tools and start the application.  
+Tested on Ubuntu 22.04.
 
 ## Deploy with AWS EC2
 - Follow the instructions on the tutorial to launch an EC2 instance with **Ubuntu**: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 - Connect your instance by following the instructions on https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html
-After connecting your instance use following commands to pull and start the project:
+After connecting your instance, use following commands to pull and start the project:
 ```bash
 git pull https://github.com/Brkns93/whatgpt.git
 cd whatgpt
