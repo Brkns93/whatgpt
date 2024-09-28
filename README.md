@@ -16,7 +16,7 @@ Tested on Ubuntu 22.04.
 - Connect your instance by following the instructions on https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html
 After connecting your instance, use following commands to pull and start the project:
 ```bash
-git pull https://github.com/Brkns93/whatgpt.git
+git clone https://github.com/Brkns93/whatgpt.git
 cd whatgpt
 ./install.sh
 ```
