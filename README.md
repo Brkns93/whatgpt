@@ -12,6 +12,7 @@ Tested on Ubuntu 22.04.
 
 ## Deploy with AWS EC2
 - Follow the instructions on the tutorial to launch an EC2 instance with **Ubuntu**: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+- Make sure you allow HTTP traffic from the internet.
 - Connect your instance by following the instructions on https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html
 After connecting your instance, use following commands to pull and start the project:
 ```bash
