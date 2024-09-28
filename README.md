@@ -3,8 +3,8 @@ This project enables developers to integrate ChatGPT with WhatsApp using Twilio.
 
 ## Dependencies
 - You have to register for a WhatsApp phone number through Twilio, free tier includes a Sandbox. (https://www.twilio.com/docs/whatsapp/tutorial/requesting-access-to-whatsapp)
-- After registiration you should configure webhook through settings. Enter http://{YOUR_PUBLIC_IP}/twilio-webhook to **"When a message comes in"** input.
-- You have to get your OpenAI API key from the platform.
+- After registiration you should configure webhook through sandbox settings. Enter http://{YOUR_PUBLIC_IP}/twilio-webhook to **"When a message comes in"** input.
+- You have to get an OpenAI API key from the platform.
 
 ## Installation
 You should configure the **.env** file before starting the application. Copy the **app/.env.config** file as **app/.env** and fill the secrets from Twilio and OpenAI. After creating your .env file, run `install.sh`. This script will install necessary docker tools and start the application. If you already have **docker** and **docker compose** installed, you can skip running this script and use `docker compose up` command instead.
