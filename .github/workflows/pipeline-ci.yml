@@ -1,0 +1,46 @@
+name: CI/CD Pipeline for AWS EC2
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build Docker image
+      run: docker build -t whatgpt:${{ github.sha }} ./app
+    
+    - name: Run tests
+      run: |
+        # Add your test commands here
+        # Example: docker run whatgpt:${{ github.sha }} python -m pytest
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+    - name: Deploy to EC2
+      env:
+        PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+      run: |
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST} '
+          cd ~/
+          
+          git pull origin main
+          
+          # Build and start the new container
+          docker-compose down
+          docker-compose up -d --build
+          
+          # Clean up old images
+          docker image prune -af
+        '
