@@ -11,6 +11,7 @@ openai = "*"
 colorama = {version = "*", sys_platform = "== 'win32'"}
 
 [dev-packages]
+pytest = "*"
 
 [requires]
 python_version = "3.8"
