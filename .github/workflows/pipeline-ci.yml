@@ -17,8 +17,7 @@ jobs:
     
     - name: Run tests
       run: |
-        # Add your test commands here
-        # Example: docker run whatgpt:${{ github.sha }} python -m pytest
+        docker run whatgpt:${{ github.sha }} pipenv install --dev && pipenv run pytest
 
   deploy:
     needs: build-and-test
