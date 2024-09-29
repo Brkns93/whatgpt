@@ -5,7 +5,7 @@ import json
 
 class OpenAiService:
   def __init__(self):
-    # OpenAI client gets the API key from the environment variable OPENAI_API_KEYSSSS
+    # OpenAI client gets the API key from the environment variable OPENAI_API_KEY
     self.openai_client = OpenAI()
     self.sessions = {}
     self.tools = NotGiven()
